@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
 
+    [SerializeField] GameObject laserPrefab;
 
     float xMin;
     float xMax;
@@ -70,10 +71,10 @@ public class Player : MonoBehaviour
 
         Camera gameCamera = Camera.main;
 
-        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
-        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
+        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x + padding;
 
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
-        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
+        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y + padding;
     }
 }
