@@ -464,6 +464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8730737880050368802, guid: bea1a5625588fdc4c87a6acf31b3be16, type: 3}
+      propertyPath: laserPrefab
+      value: 
+      objectReference: {fileID: 6155671624762838215, guid: fa684e567753b4743808c99a8f16745b, type: 3}
     - target: {fileID: 8730737880050368805, guid: bea1a5625588fdc4c87a6acf31b3be16, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

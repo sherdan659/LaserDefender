@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
+    [SerializeField] float laserSpeed = 20f;
+    [SerializeField] float laserDelay = 0.3f;
 
     [SerializeField] GameObject laserPrefab;
 
@@ -29,6 +31,9 @@ public class Player : MonoBehaviour
     {
         // print("The start method has been called.");  //method call
         SetUpMoveBoundaries();
+
+        StartCoroutine(PrintAndWait());
+
     }
 
     // Update is called once per frame
@@ -37,6 +42,7 @@ public class Player : MonoBehaviour
         //print(" The update method has been called");
 
         Move();
+        Fire();
     }
     // Move is a User-Defined method and it will be used to control the player ships movment
     void Move()
@@ -77,4 +83,35 @@ public class Player : MonoBehaviour
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y + padding;
     }
+    void Fire()
+    {
+
+        if (Input.GetButtonDown("Fire1"))// if(Input.GetButtonDown("Fire1") == true)
+        {
+            StartCoroutine(FireContinously());
+        }
+    }
+
+    IEnumerator PrintAndWait()
+    {
+        print("Message 1 sent!");
+
+        yield return new WaitForSeconds(3f);
+
+        print("Message 2 sent");
+
+    }
+
+    IEnumerator FireContinously()
+    {
+        while (true)
+        {
+            GameObject laserClone = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+
+            laserClone.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+            
+            yield return new WaitForSeconds(laserDelay);
+        }
+    }
+
 }
