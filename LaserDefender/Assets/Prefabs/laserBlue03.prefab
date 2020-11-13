@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1943990980529686132}
   - component: {fileID: 6936442141771154517}
   - component: {fileID: -2167992053726776884}
+  - component: {fileID: 4836757428954941782}
   m_Layer: 0
   m_Name: laserBlue03
   m_TagString: Untagged
@@ -98,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
+  laserSpeed: 20
+  laserDelay: 0.3
   laserPrefab: {fileID: 6155671624762838215}
 --- !u!114 &6936442141771154517
 MonoBehaviour:
@@ -132,3 +135,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &4836757428954941782
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155671624762838215}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.09, y: 0.37}
+  m_Direction: 0
