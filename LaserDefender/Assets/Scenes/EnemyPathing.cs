@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour
 {
+    //refrence to the current wave assets (tpye wave config)
+    [SerializeField] WaveConfig waveConfig;
+
+
     [SerializeField] List<Transform> wayPoints;
     [SerializeField] float enemyMoveSpeed = 2f;
 
@@ -12,6 +16,8 @@ public class EnemyPathing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        wayPoints = waveConfig.GetWaypoints();
+        // we are setting the current enemy to be placed in the position of the first waypoint
         transform.position = wayPoints[wayPointIndex].position;
     }
 
