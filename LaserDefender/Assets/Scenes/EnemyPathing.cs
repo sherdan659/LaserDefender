@@ -9,7 +9,7 @@ public class EnemyPathing : MonoBehaviour
 
 
     [SerializeField] List<Transform> wayPoints;
-    [SerializeField] float enemyMoveSpeed = 2f;
+ 
 
     int wayPointIndex = 0;
 
@@ -32,7 +32,7 @@ public class EnemyPathing : MonoBehaviour
         if(wayPointIndex < wayPoints.Count)
             //if(wayPointIndex <= wayPoints.Count - 1)
         {
-            var movementThisFrame = enemyMoveSpeed * Time.deltaTime;
+            var movementThisFrame = waveConfig.GetEnemyMoveSpeed() * Time.deltaTime;
             var targetPosition = wayPoints[wayPointIndex].position;
 
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
@@ -45,5 +45,10 @@ public class EnemyPathing : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetWaveConfig(WaveConfig waveConfigToSet)
+    {
+        waveConfig = waveConfigToSet;
     }
 }
